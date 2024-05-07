@@ -1,6 +1,6 @@
 ## Understanding local values
 
-###Local Values 
+### Local Values 
 ```
 cd ~
 ```
