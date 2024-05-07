@@ -1,6 +1,9 @@
 ## Understanding local values
 
-### Task 1: Local Values 
+###Local Values 
+```
+cd ~
+```
 ```
 mkdir lab5 && cd lab5
 ```
