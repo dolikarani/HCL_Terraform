@@ -50,7 +50,7 @@ terraform -v
 sudo apt-get install python3-pip -y
 ```
 ```
-sudo pip3 install awscli
+sudo pip3 install awscli --break-system-packages
 ```
 ```
 aws configure
