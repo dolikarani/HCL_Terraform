@@ -1,7 +1,7 @@
 ## Understanding Terraform functions 
-### Task 2: Functions
+### Functions
 ```
-cd ..
+cd ~
 ```
 ```
 mkdir lab6 && cd lab6
