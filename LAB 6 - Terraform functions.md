@@ -1,4 +1,4 @@
-## Understanding local functions 
+## Understanding Terraform functions 
 ### Task 2: Functions
 ```
 cd ..
