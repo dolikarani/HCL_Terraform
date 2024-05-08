@@ -1,7 +1,7 @@
 ## AWS EC2 instance creation using Terraform Input Variables
 
 
-### Task-1: Create EC2 instance using variables 
+### Task-1: Create EC2 instance using Input variables with default values
 ```
 cd ~
 ```
@@ -9,37 +9,35 @@ cd ~
 mkdir variables-lab && cd variables-lab/
 ```
 Now Create four Files ie. `provider.tf,` `vars.tf,` `terraform.tfvars,` `instance.tf.`
-```
-vi provider.tf
-```
-Add the given lines, by pressing "INSERT" 
-```
-provider "aws"{
-  access_key=var.AWS_ACCESS_KEY
-  secret_key=var.AWS_SECRET_KEY
-  region=var.AWS_REGION
-}
-```
-Save the file using "ESCAPE + :wq!"
-```
+
 vi vars.tf
 ```
 Add the given lines, by pressing "INSERT" also replace your `Region`
 ```
-variable "AWS_ACCESS_KEY"{}
-variable "AWS_SECRET_KEY"{}
+variable "AMIS"{
+  description = "Redhat ami ID for the EC2 Instance"
+  default = "ami-0d77c9d87c7e619f9"
+}
+
+variable "Instance_type"{
+  description = "Instance type for the EC2 Instance"
+  default = "t2.micro"
+}
+
 variable "AWS_REGION"{
   default = "us-east-2"
 }
 ```
 Save the file using "ESCAPE + :wq!"
 ```
-vi terraform.tfvars
 ```
-Add the given lines, by pressing "INSERT" Also replace them with your `AccessKey` and `Secret Access Keys` that you created and downloaded earlier.
+vi provider.tf
 ```
-AWS_ACCESS_KEY="< Insert your AWS Access Key >"
-AWS_SECRET_KEY="< Insert your AWS Secret Key >"
+Add the given lines, by pressing "INSERT" 
+```
+provider "aws"{
+  region=var.AWS_REGION
+}
 ```
 Save the file using "ESCAPE + :wq!"
 ```
@@ -48,8 +46,8 @@ vi instance.tf
 Add the given lines, by pressing "INSERT" Also replace your `region's AMI ID` and `YourName`
 ```
 resource "aws_instance" "terraform_example"{
-  ami = "ami-07efac79022b86107"
-  instance_type="t2.micro"
+  ami = var.AMIS
+  instance_type = var.Instance_type
   tags = {
     Name = "Variables-Lab2-YourName"
   }
@@ -67,12 +65,30 @@ terraform apply
 ```
 Once applied, go to the Console and check that the new EC2 is created using Variables.
 
-Use the `"terraform destroy"` command to clean the infrastructure used in this lab
+
+### Task-2: Create EC2 instance using Input variables with -var flag
+
+We will be using same configuration file created above but when applying will pass the variable values with **-var** flag to see the precedance
+
 ```
-terraform destroy -auto-approve
+terraform apply -var="AMIS=ami-09040d770ffe2224f" -var="Instance_type=t3.micro"
 ```
 
-### Task-2: Implementing map variables that dynamically fetch AMI based on the Linux distro selected
+### Task-3: Create EC2 instance using Input variables with Environment Variable
+Now we will be using same configuration file created above but when applying will pass the variable values from **ENV variables** to see the precedance
+
+```
+export TF_VAR_Instance_type="t3.medium"
+```
+```
+printenv
+```
+```
+terraform apply 
+```
+
+
+### Task-4: Implementing map variables that dynamically fetch AMI based on the Linux distro selected
 ```
 vi instance.tf
 ```
