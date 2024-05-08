@@ -9,7 +9,7 @@ cd ~
 mkdir variables-lab && cd variables-lab/
 ```
 Now Create four Files ie. `provider.tf,` `vars.tf,` `terraform.tfvars,` `instance.tf.`
-
+```
 vi vars.tf
 ```
 Add the given lines, by pressing "INSERT" also replace your `Region`
@@ -36,7 +36,7 @@ vi provider.tf
 Add the given lines, by pressing "INSERT" 
 ```
 provider "aws"{
-  region=var.AWS_REGION
+  region = var.AWS_REGION
 }
 ```
 Save the file using "ESCAPE + :wq!"
