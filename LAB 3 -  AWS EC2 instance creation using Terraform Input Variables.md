@@ -8,7 +8,7 @@ cd ~
 ```
 mkdir variables-lab && cd variables-lab/
 ```
-Now Create four Files ie. `provider.tf,` `vars.tf,` `terraform.tfvars,` `instance.tf.`
+Now Create Files ie. `provider.tf,` `vars.tf,`  `instance.tf.`
 ```
 vi vars.tf
 ```
@@ -153,6 +153,25 @@ terraform plan -var 'Linux_distro=redhat' -out myplan
 ```
 terraform apply myplan
 ```
+Now create `terraform.tfvars,` file to pass the variable values in it, and  see the precedance
+```
+vi terraform.tfvars 
+```
+Add the given lines, by pressing "INSERT" Also replace them with your `AccessKey` and `Secret Access Keys` that you created and downloaded earlier.
+```
+Linux_distro = "ubuntu"
+
+Instance_type = "t2.large"
+```
+Save the file using "ESCAPE + :wq!"
+
+```
+terraform fmt
+```
+ ```
+terraform apply
+```
+
 Use the `terraform destroy` command to clean the infrastructure used in this lab
 ```
 terraform destroy
