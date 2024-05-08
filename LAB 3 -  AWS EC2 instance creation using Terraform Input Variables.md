@@ -98,7 +98,7 @@ Delete all the existing lines and Add the given code, by pressing "INSERT" and r
 ```
 resource "aws_instance" "terraform_example"{
   ami = var.AMIS[var.Linux_distro]
-  instance_type="t2.micro"
+  instance_type = var.Instance_type
   tags = {
     Name = "YourName-Lab2-Task2"
   }
@@ -114,8 +114,6 @@ Delete all existing lines and Add the given lines, by pressing "INSERT" Also ens
 
 `Note:` To delete all the lines at a time use `Esc+gg+dG`
 ```
-variable "AWS_ACCESS_KEY"{}
-variable "AWS_SECRET_KEY"{}
 variable "AWS_REGION"{
   default = "us-east-2"
   }
@@ -128,9 +126,9 @@ variable "Linux_distro"{
 variable "AMIS"{
   type=map(string)
   default={
-   redhat="ami-0ba62214afa52bec7"
-   ubuntu="ami-0fb653ca2d3203ac1"
-   amazon="ami-0231217be14a6f3ba"
+   redhat="ami-0d77c9d87c7e619f9"
+   ubuntu="ami-09040d770ffe2224f"
+   amazon="ami-0ddda618e961f2270"
   }
 }
 ```
@@ -151,7 +149,7 @@ Use the `terraform destroy` command to clean the infrastructure used in this lab
 ```
 terraform destroy
 ```
-Once Done remove the `EC2-lab` Directory.
+Once Done remove the `variables-lab` Directory.
 ```
 cd ~
 rm -rf variables-lab
