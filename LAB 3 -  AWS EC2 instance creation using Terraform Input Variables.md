@@ -114,9 +114,14 @@ Delete all existing lines and Add the given lines, by pressing "INSERT" Also ens
 
 `Note:` To delete all the lines at a time use `Esc+gg+dG`
 ```
+variable "Instance_type"{
+  description = "Instance type for the EC2 Instance"
+  default = "t2.micro"
+}
+
 variable "AWS_REGION"{
   default = "us-east-2"
-  }
+}
 
 variable "Linux_distro"{
   #description = "Please Enter the Linux distro (redhat, ubuntu, amazon)"
