@@ -49,7 +49,7 @@ resource "aws_instance" "terraform_example"{
   ami = var.AMIS
   instance_type = var.Instance_type
   tags = {
-    Name = "Variables-Lab2-YourName"
+    Name = "Variables-Lab3-YourName"
   }
 }
 ```
@@ -100,7 +100,7 @@ resource "aws_instance" "terraform_example"{
   ami = var.AMIS[var.Linux_distro]
   instance_type = var.Instance_type
   tags = {
-    Name = "YourName-Lab2-Task2"
+    Name = "Variables-Lab3-YourName"
   }
 }
 ```
@@ -143,6 +143,9 @@ terraform fmt
 ```
 ```
 terraform validate
+```
+```
+terraform plan 
 ```
 ```
 terraform plan -var 'Linux_distro=redhat' -out myplan
