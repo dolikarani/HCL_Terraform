@@ -29,7 +29,7 @@ variable "AWS_REGION"{
 }
 ```
 Save the file using "ESCAPE + :wq!"
-```
+
 ```
 vi provider.tf
 ```
