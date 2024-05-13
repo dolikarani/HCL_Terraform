@@ -24,13 +24,15 @@ locals {
   }
 }
 resource "aws_instance" "instance1" {
-   ami = "******ENTER THE AMI VALUE********"
+   #Replace "ami-04b70fa74e45c3917" with your desired AMI ID for your instance
+   ami = "ami-04b70fa74e45c3917"
    instance_type = "t2.micro"
    tags = local.custom_tags
 }
 
 resource "aws_instance" "instance2" {
-   ami = "******ENTER THE AMI VALUE********"
+   #Replace "ami-04b70fa74e45c3917" with your desired AMI ID for your instance
+   ami = "ami-04b70fa74e45c3917"
    instance_type = "t2.small"
    tags = local.custom_tags
 }
