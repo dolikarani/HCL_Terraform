@@ -27,9 +27,9 @@ variable "tags" {
 variable "ami" {
   type = map
   default = {
-    "us-east-1" = "ami-0fc5d935ebf8bc3bc"         ******ENTER THE AMI VALUE********
-    "us-west-1" = "ami-060d3509162bcc386"         ******ENTER THE AMI VALUE********
-    "ap-south-1" = "ami-09ba48996007c8b50"        ******ENTER THE AMI VALUE********
+    "us-east-1" = "ami-0e001c9271cf7f3b9"         ******ENTER THE AMI VALUE********
+    "us-west-1" = "ami-08012c0a9ee8e21c4"         ******ENTER THE AMI VALUE********
+    "ap-south-1" = "ami-0f58b397bc5c1f2e8"        ******ENTER THE AMI VALUE********
   }
 }
 
