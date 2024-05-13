@@ -20,6 +20,7 @@ locals {
   custom_tags = {
     Team = "DevOps"
     Company = "CloudThat"
+    Name = "Project-resources"
   }
 }
 resource "aws_instance" "instance1" {
