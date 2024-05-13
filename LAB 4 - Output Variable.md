@@ -18,7 +18,7 @@ provider "aws" {
 
 resource "aws_instance" "example" {
   ami           = var.AMIS[var.AWS_REGION]
-  instance_type = "t2.micro"
+  instance_type = var.Instance_type
   provisioner "local-exec" {
     command = "echo ${aws_instance.example.private_ip} >> private_ips.txt"
   }
@@ -48,16 +48,26 @@ In `vars.tf` ensure to replace your `region` and Include your `region's Ubuntu A
 vi vars.tf
 ```
 ```
-variable "AWS_REGION" {
+variable "Instance_type"{
+  description = "Instance type for the EC2 Instance"
+  default = "t2.micro"
+}
+
+variable "AWS_REGION"{
   default = "us-east-2"
 }
 
-variable "AMIS" {
-  type = map(string)
-  default = {
-    us-east-2 = "ami-089c26792dcb1fbd4"
-    us-west-2 = "ami-00448a337adc93c05"
-    eu-west-1 = "ami-0e309a5f3a6dd97ea"
+variable "Linux_distro"{
+  #description = "Please Enter the Linux distro (redhat, ubuntu, amazon)"
+  default = "amazon"
+  }
+
+variable "AMIS"{
+  type=map(string)
+  default={
+   redhat="ami-0d77c9d87c7e619f9"
+   ubuntu="ami-09040d770ffe2224f"
+   amazon="ami-0ddda618e961f2270"
   }
 }
 ```
