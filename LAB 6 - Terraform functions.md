@@ -7,14 +7,20 @@ cd ~
 mkdir lab6 && cd lab6
 ```
 ```
-vi functions.tf
+vi provider.tf
 ```
 Add the given lines, by pressing "INSERT" 
 ```
 provider "aws" {
   region     = var.region
 }
-
+```
+Save the file using "ESCAPE + :wq!"
+```
+vi vars.tf
+```
+Add the given lines, by pressing "INSERT" 
+```
 variable "region" {
   default = "ap-south-1"
 }
@@ -32,7 +38,13 @@ variable "ami" {
     "ap-south-1" = "ami-0f58b397bc5c1f2e8"        ******ENTER THE AMI VALUE********
   }
 }
+```
+Save the file using "ESCAPE + :wq!"
 
+```
+vi functions.tf
+```
+```
 resource "aws_instance" "application-servers" {
    ami = lookup(var.ami,var.region)
    instance_type = "t2.micro"
@@ -43,7 +55,6 @@ resource "aws_instance" "application-servers" {
    }
 }
 ```
-
 Save the file using "ESCAPE + :wq!"
 ```
 terraform init
