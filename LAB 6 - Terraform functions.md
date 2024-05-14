@@ -44,6 +44,7 @@ Save the file using "ESCAPE + :wq!"
 ```
 vi functions.tf
 ```
+Add the given lines, by pressing "INSERT" 
 ```
 resource "aws_instance" "application-servers" {
    ami = lookup(var.ami,var.region)
