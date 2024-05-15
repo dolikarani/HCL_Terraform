@@ -11,9 +11,6 @@ provider "aws" {
   region = "us-east-1"
 }   
 
-#Execute the below command
-#terraform import aws_instance.test_instance <***Resource-ID***>
-
 resource "aws_instance" "test_instance" {
   ami = "<***AMI_ID OF THE EC2 Instance to be IMPORTED***>"
   instance_type = "<***INSTANCE TYPE***>"
@@ -25,6 +22,10 @@ resource "aws_instance" "test_instance" {
 Save the file using "ESCAPE + :wq!"
 ```
 terraform init
+```
+Replace the **Resource-ID** in the below command and execute
+```
+terraform import aws_instance.test_instance <***Resource-ID***>
 ```
 ```
 terraform plan
