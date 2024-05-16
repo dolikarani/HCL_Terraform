@@ -66,7 +66,7 @@ vi sg.tf
 
 #Creating the security Group and enabling port 22 for ssh
 resource "aws_security_group" "terraform_sg" {
-  name        = "Mehar-allow-ssh"
+  name        = "Sirin-allow-ssh"
   description = "security group that allows ssh and all egress traffic"
   egress {
     from_port   = 0
@@ -81,7 +81,7 @@ resource "aws_security_group" "terraform_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Mehar-allow-ssh"
+    Name = "sirin-allow-ssh"
   }
 }
 ```
