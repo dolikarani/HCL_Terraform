@@ -1,6 +1,6 @@
 ## Creating AWS resources using terraform modules
 ```
-cd /home/ubuntu/
+cd ~
 ```
 ```
 sudo apt install tree -y
