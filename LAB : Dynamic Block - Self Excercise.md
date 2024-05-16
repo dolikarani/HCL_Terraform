@@ -18,6 +18,7 @@ Save the file using "ESCAPE + :wq!"
 ```
 vi vars.tf
 ```
+Add the given lines, by pressing "INSERT"
 ```
 variable "ingress_ports" {
   type = list(number)
