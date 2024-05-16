@@ -1,4 +1,5 @@
 # Creating an AWS Security Group with Terraform and Configuring Dynamic Ingress and Egress Rules
+Dynamic blocks in Terraform allow you to define repeated nested blocks dynamically within a resource or module configuration based on dynamic input.
 ```
 cd ~
 mkdir dynamic_block_lab && cd dynamic_block_lab
@@ -93,9 +94,13 @@ terraform plan
 ```
 terraform apply -auto-approve
 ```
+Once applied, go to the Console and check that the new **Security Group** is created.
+
+Use the `terraform destroy` command to clean the resources created in this lab
 ```
 terraform destroy -auto-approve
 ```
+Once Done remove the Directory as well.
 ```
 cd ~
 rm -rf dynamic_block_lab
